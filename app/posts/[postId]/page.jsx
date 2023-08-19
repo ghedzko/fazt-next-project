@@ -1,5 +1,6 @@
 import PostCard from "@/components/PostCard/PostCard";
-
+import PostsPages from "../page"
+import { Suspense } from "react";
 async function loadPost (postId) {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postId}`
@@ -13,6 +14,11 @@ async function PostPage ({ params }) {
     <section>
       <h1>Post {params.postId} - { post.title}</h1>
       <PostCard post={post} />
+      <hr />
+      <Suspense fallback={<div>Cargando publicaciones...</div>}>
+      <PostsPages />
+      </Suspense>
+
     </section>
   );
 };
