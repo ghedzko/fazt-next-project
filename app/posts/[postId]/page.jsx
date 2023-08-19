@@ -1,4 +1,4 @@
-import PostCard from "@/components/PostCard/PostCard";
+import { PostCard } from "@/components";
 import PostsPages from "../page"
 import { Suspense } from "react";
 async function loadPost (postId) {
